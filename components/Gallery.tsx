@@ -11,18 +11,24 @@ const galleryItems = [
   { emoji: "🎂", label: "Pâtisseries généreuses", gradient: "from-saffron to-saffron-soft" },
 ];
 
+
 export function Gallery() {
   return (
-    <section id="galerie" className="bg-cream px-5 py-20 sm:px-8 sm:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="galerie" className="relative overflow-hidden bg-coffee px-5 py-20 sm:px-8 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden="true">
+        <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-terracotta blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-saffron blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl">
         <Reveal>
-          <p className="mb-3 text-center text-sm font-bold uppercase tracking-widest text-olive">
+          <p className="mb-3 text-center text-sm font-bold uppercase tracking-widest text-saffron-soft">
             Un aperçu
           </p>
-          <h2 className="text-center font-display text-4xl font-bold text-coffee sm:text-5xl">
+          <h2 className="text-center font-display text-4xl font-bold text-cream sm:text-5xl">
             Galerie
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-coffee-soft">
+          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-cream/70">
             La diversité de nos plats et l&apos;ambiance conviviale de la maison.
           </p>
         </Reveal>
@@ -31,7 +37,7 @@ export function Gallery() {
           {galleryItems.map((item, i) => (
             <Reveal key={item.label} delay={(i % 4) * 0.06}>
               <div
-                className={`group relative aspect-square overflow-hidden rounded-2xl bg-linear-to-br ${item.gradient} shadow-sm transition-transform hover:scale-[1.03] hover:shadow-lg`}
+                className={`group relative aspect-square overflow-hidden rounded-2xl bg-linear-to-br ${item.gradient} shadow-lg shadow-black/30 transition-transform hover:scale-[1.03] hover:shadow-xl`}
               >
                 <div
                   className="flex h-full items-center justify-center text-5xl sm:text-6xl"

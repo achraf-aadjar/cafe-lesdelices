@@ -9,9 +9,13 @@ function formatPrice(price: number) {
   return `${price.toLocaleString("fr-FR")} F`;
 }
 
-function ItemCard({ item }: { item: MenuItem }) {
+const accentColors = ["border-l-terracotta", "border-l-olive", "border-l-saffron"];
+
+function ItemCard({ item, accent }: { item: MenuItem; accent: string }) {
   return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-coffee/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
+    <div
+      className={`flex items-start justify-between gap-4 rounded-2xl border-y border-r border-l-4 border-coffee/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md ${accent}`}
+    >
       <div className="min-w-0">
         <h4 className="font-display text-lg font-semibold text-coffee">{item.name}</h4>
         {item.description && (
@@ -65,8 +69,8 @@ function Subsection({ subsection }: { subsection: MenuSubsection }) {
         <SharedPriceGroup subsection={subsection} />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
-          {subsection.items.map((item) => (
-            <ItemCard key={item.name} item={item} />
+          {subsection.items.map((item, i) => (
+            <ItemCard key={item.name} item={item} accent={accentColors[i % accentColors.length]} />
           ))}
         </div>
       )}

@@ -3,8 +3,13 @@ import { ContactForm } from "./ContactForm";
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-cream px-5 py-20 sm:px-8 sm:py-28">
-      <div className="mx-auto max-w-4xl">
+    <section id="contact" className="relative overflow-hidden bg-cream px-5 py-20 sm:px-8 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-15" aria-hidden="true">
+        <div className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-olive blur-3xl" />
+        <div className="absolute -top-16 right-0 h-64 w-64 rounded-full bg-terracotta blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl">
         <Reveal>
           <p className="mb-3 text-center text-sm font-bold uppercase tracking-widest text-olive">
             Une question, une réservation ?
