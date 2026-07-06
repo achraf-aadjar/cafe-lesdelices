@@ -88,3 +88,8 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.font-display-italic {
+  font-family: var(--font-fraunces-italic), serif;
+  font-style: italic;
+}

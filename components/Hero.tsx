@@ -110,7 +110,7 @@ export function Hero() {
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 max-w-xl font-display text-xl italic leading-relaxed text-cream drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] sm:text-2xl"
+          className="font-display-italic mt-6 max-w-xl text-xl leading-relaxed text-cream drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] sm:text-2xl"
         >
           Votre halte gourmande avant de reprendre la route de Saint-Louis — un grand choix de
           plats généreux, préparés avec soin, pour repartir le sourire aux lèvres.

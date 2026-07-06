@@ -148,7 +148,7 @@ export function Menu() {
               exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="mb-10 text-center font-display text-lg italic text-terracotta-dark">
+              <p className="font-display-italic mb-10 text-center text-lg text-terracotta-dark">
                 {active.intro}
               </p>
 

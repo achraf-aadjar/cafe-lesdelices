@@ -2,17 +2,27 @@ import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
+// Seules les graisses/styles réellement utilisés dans le site sont chargés
+// (600/700 romain + 400 italique pour Fraunces, 400/600/700 pour Jakarta),
+// pour limiter le nombre de fichiers de police téléchargés.
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "900"],
-  style: ["normal", "italic"],
+  weight: ["600", "700"],
+  style: ["normal"],
+});
+
+const frauncesItalic = Fraunces({
+  variable: "--font-fraunces-italic",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic"],
 });
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${fraunces.variable} ${jakarta.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${frauncesItalic.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-coffee">
         {children}

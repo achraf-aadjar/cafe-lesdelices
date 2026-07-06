@@ -57,7 +57,7 @@ export function Location() {
 
               <div className="h-px w-full bg-cream/15" />
 
-              <p className="font-display text-lg italic text-cream/90">
+              <p className="font-display-italic text-lg text-cream/90">
                 Une pause chaleureuse, un plat généreux, et la route reprend l&apos;esprit léger.
               </p>
 
