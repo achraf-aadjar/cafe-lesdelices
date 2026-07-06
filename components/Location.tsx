@@ -1,11 +1,5 @@
 import { Reveal } from "./Reveal";
 
-const hours = [
-  { day: "Lundi — Vendredi", time: "8h00 – 23h00" },
-  { day: "Samedi", time: "8h00 – 00h00" },
-  { day: "Dimanche", time: "9h00 – 23h00" },
-];
-
 export function Location() {
   return (
     <section id="localisation" className="bg-cream-soft px-5 py-20 sm:px-8 sm:py-28">
@@ -19,7 +13,8 @@ export function Location() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-coffee-soft">
             Sur la route de Saint-Louis, juste après le rond-point de l&apos;Hôtel de Ville de
-            Thiès — le point d&apos;arrêt idéal pour souffler avant de repartir.
+            Thiès — ouvert 24h/24, le point d&apos;arrêt idéal à toute heure du jour ou de la
+            nuit.
           </p>
         </Reveal>
 
@@ -54,14 +49,10 @@ export function Location() {
 
               <div>
                 <h3 className="font-display text-xl font-bold text-saffron-soft">Horaires</h3>
-                <ul className="mt-2 space-y-1.5 text-lg">
-                  {hours.map((h) => (
-                    <li key={h.day} className="flex justify-between gap-4">
-                      <span className="text-cream/85">{h.day}</span>
-                      <span className="font-semibold">{h.time}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-2 text-2xl font-bold text-cream">Ouvert 24h/24, 7j/7</p>
+                <p className="mt-1 text-sm text-cream/70">
+                  Un arrêt possible à toute heure, de jour comme de nuit.
+                </p>
               </div>
 
               <div className="h-px w-full bg-cream/15" />

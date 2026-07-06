@@ -62,7 +62,7 @@ export function Header() {
         </nav>
 
         <a
-          href="tel:+221338000000"
+          href="tel:+221339517516"
           className="hidden lg:inline-flex items-center gap-2 rounded-full bg-chili px-5 py-2.5 text-sm font-bold text-cream shadow-sm transition-transform hover:scale-105 hover:bg-terracotta-dark"
         >
           Appeler le restaurant
@@ -108,7 +108,7 @@ export function Header() {
             ))}
           </ul>
           <a
-            href="tel:+221338000000"
+            href="tel:+221339517516"
             className="mt-4 flex items-center justify-center gap-2 rounded-full bg-chili px-5 py-3 text-sm font-bold text-cream"
           >
             Appeler le restaurant

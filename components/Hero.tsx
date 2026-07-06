@@ -152,7 +152,7 @@ export function Hero() {
             <CroissantIcon /> Pâtisseries maison
           </span>
           <span className="inline-flex items-center gap-2">
-            <RouteIcon /> Étape idéale route de Saint-Louis
+            <RouteIcon /> Ouvert 24h/24, 7j/7
           </span>
         </motion.div>
       </div>

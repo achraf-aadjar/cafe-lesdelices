@@ -15,34 +15,14 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <div className="mt-10 flex justify-center">
             <a
-              href="tel:+221338000000"
-              className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
+              href="tel:+221339517516"
+              className="flex w-full max-w-xs flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
             >
               <span className="text-2xl" aria-hidden="true">📞</span>
-              <span className="font-bold text-coffee">33 800 00 00</span>
+              <span className="font-bold text-coffee">33 951 75 16</span>
               <span className="text-sm text-coffee-soft">Appelez-nous</span>
-            </a>
-            <a
-              href="https://wa.me/221770000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
-            >
-              <span className="text-2xl" aria-hidden="true">💬</span>
-              <span className="font-bold text-coffee">77 000 00 00</span>
-              <span className="text-sm text-coffee-soft">WhatsApp</span>
-            </a>
-            <a
-              href="https://instagram.com/lesdelices.thies"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
-            >
-              <span className="text-2xl" aria-hidden="true">📸</span>
-              <span className="font-bold text-coffee">@lesdelices.thies</span>
-              <span className="text-sm text-coffee-soft">Instagram</span>
             </a>
           </div>
         </Reveal>
