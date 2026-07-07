@@ -4,9 +4,27 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+
+// Numéro WhatsApp du restaurant (format international sans le +)
+const WHATSAPP_NUMBER = "221787500707";
 
 const fieldClasses =
   "w-full rounded-xl border-2 border-coffee/15 bg-white px-4 py-3 text-base text-coffee placeholder:text-coffee-soft/50 transition-colors focus:border-terracotta";
+
+function buildWhatsAppMessage(values: ContactFormValues) {
+  const lines = [
+    "Bonjour Les Délices,",
+    "Nouvelle demande depuis le site :",
+    "",
+    `Nom : ${values.name}`,
+    `Téléphone : ${values.phone}`,
+  ];
+  if (values.email) lines.push(`E-mail : ${values.email}`);
+  if (values.guests) lines.push(`Nombre de personnes : ${values.guests}`);
+  lines.push("", `Message : ${values.message}`);
+  return lines.join("\n");
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success">("idle");
@@ -21,9 +39,10 @@ export function ContactForm() {
     defaultValues: { name: "", phone: "", email: "", guests: "", message: "" },
   });
 
-  const onSubmit = async (values: ContactFormValues) => {
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    console.log("Nouvelle demande de contact :", values);
+  const onSubmit = (values: ContactFormValues) => {
+    const text = encodeURIComponent(buildWhatsAppMessage(values));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    window.open(url, "_blank", "noopener,noreferrer");
     setStatus("success");
     reset();
   };
@@ -139,15 +158,17 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex w-full items-center justify-center rounded-full bg-chili px-7 py-3.5 text-base font-bold text-cream shadow-md transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-chili px-7 py-3.5 text-base font-bold text-cream shadow-md transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        {isSubmitting ? "Envoi en cours..." : "Envoyer la demande"}
+        <WhatsAppIcon className="h-5 w-5" />
+        {isSubmitting ? "Ouverture de WhatsApp..." : "Envoyer sur WhatsApp"}
       </button>
 
       <div role="status" aria-live="polite">
         {status === "success" && (
           <p className="text-sm font-semibold text-olive">
-            Merci ! Votre message a bien été envoyé, nous vous répondrons rapidement.
+            Merci ! WhatsApp s&apos;ouvre avec votre message — appuyez sur Envoyer pour finaliser.
+            Si rien ne s&apos;ouvre, appelez-nous au 33 951 75 16.
           </p>
         )}
       </div>
