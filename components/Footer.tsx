@@ -1,3 +1,6 @@
+import { WhatsAppIcon } from "./WhatsAppIcon";
+import { PhoneIcon } from "./PhoneIcon";
+
 const quickLinks = [
   { href: "#menu", label: "Le Menu" },
   { href: "#galerie", label: "Galerie" },
@@ -22,20 +25,22 @@ export function Footer() {
               <br />
               Thiès, Sénégal
             </p>
-            <div className="mt-2 flex flex-col gap-1 text-sm font-semibold">
+            <div className="mt-3 flex flex-col items-center gap-1.5 text-sm font-semibold sm:items-start">
               <a
                 href="tel:+221339517516"
-                className="text-saffron-soft hover:text-saffron"
+                className="inline-flex items-center gap-2 text-saffron-soft hover:text-saffron"
               >
-                📞 33 951 75 16
+                <PhoneIcon className="h-4 w-4" />
+                33 951 75 16
               </a>
               <a
                 href="https://wa.me/221787500707"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-saffron-soft hover:text-saffron"
+                className="inline-flex items-center gap-2 text-saffron-soft hover:text-saffron"
               >
-                💬 78 750 07 07 (WhatsApp)
+                <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                78 750 07 07 (WhatsApp)
               </a>
             </div>
           </div>

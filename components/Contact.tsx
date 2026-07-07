@@ -1,5 +1,7 @@
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+import { PhoneIcon } from "./PhoneIcon";
 
 export function Contact() {
   return (
@@ -25,7 +27,7 @@ export function Contact() {
               href="tel:+221339517516"
               className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
             >
-              <span className="text-2xl" aria-hidden="true">📞</span>
+              <PhoneIcon className="h-7 w-7 text-terracotta" />
               <span className="font-bold text-coffee">33 951 75 16</span>
               <span className="text-sm text-coffee-soft">Appelez-nous</span>
             </a>
@@ -35,7 +37,7 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
             >
-              <span className="text-2xl" aria-hidden="true">💬</span>
+              <WhatsAppIcon className="h-7 w-7 text-[#25D366]" />
               <span className="font-bold text-coffee">78 750 07 07</span>
               <span className="text-sm text-coffee-soft">WhatsApp</span>
             </a>
