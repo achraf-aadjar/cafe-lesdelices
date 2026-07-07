@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import logo from "@/public/images/logo.webp";
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
@@ -44,9 +46,15 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a
           href="#accueil"
-          className="font-display text-2xl font-semibold tracking-tight text-cream drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]"
+          className="flex items-center rounded-xl"
+          aria-label="Les Délices — retour à l'accueil"
         >
-          Les Délices
+          <Image
+            src={logo}
+            alt="Les Délices"
+            priority
+            className="h-12 w-12 rounded-xl object-cover shadow-md ring-1 ring-black/5 sm:h-14 sm:w-14"
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Navigation principale">
