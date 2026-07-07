@@ -9,23 +9,25 @@ function formatPrice(price: number) {
   return `${price.toLocaleString("fr-FR")} F`;
 }
 
-const accentColors = ["border-l-terracotta", "border-l-olive", "border-l-saffron"];
-
-function ItemCard({ item, accent }: { item: MenuItem; accent: string }) {
+function ItemRow({ item }: { item: MenuItem }) {
   return (
-    <div
-      className={`flex items-start justify-between gap-4 rounded-2xl border-y border-r border-l-4 border-coffee/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md ${accent}`}
-    >
-      <div className="min-w-0">
+    <div>
+      <div className="flex items-baseline gap-2">
         <h4 className="font-display text-lg font-semibold text-coffee">{item.name}</h4>
-        {item.description && (
-          <p className="mt-1.5 text-sm leading-relaxed text-coffee-soft">{item.description}</p>
+        {item.price !== undefined && (
+          <>
+            <span
+              aria-hidden="true"
+              className="-translate-y-1 flex-1 border-b-2 border-dotted border-coffee/25"
+            />
+            <span className="shrink-0 whitespace-nowrap font-display text-lg font-bold text-terracotta">
+              {formatPrice(item.price)}
+            </span>
+          </>
         )}
       </div>
-      {item.price !== undefined && (
-        <span className="shrink-0 whitespace-nowrap font-display text-lg font-bold text-terracotta">
-          {formatPrice(item.price)}
-        </span>
+      {item.description && (
+        <p className="mt-1 text-sm leading-relaxed text-coffee-soft">{item.description}</p>
       )}
     </div>
   );
@@ -33,16 +35,16 @@ function ItemCard({ item, accent }: { item: MenuItem; accent: string }) {
 
 function SharedPriceGroup({ subsection }: { subsection: MenuSubsection }) {
   return (
-    <div className="flex flex-wrap gap-2.5">
+    <ul className="columns-2 gap-x-10 sm:columns-3">
       {subsection.items.map((item) => (
-        <span
+        <li
           key={item.name}
-          className="rounded-full border border-coffee/10 bg-white px-4 py-2 text-sm font-semibold text-coffee shadow-sm"
+          className="mb-2.5 break-inside-avoid font-display text-base text-coffee"
         >
           {item.name}
-        </span>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
@@ -68,9 +70,9 @@ function Subsection({ subsection }: { subsection: MenuSubsection }) {
       {subsection.sharedPrice !== undefined ? (
         <SharedPriceGroup subsection={subsection} />
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {subsection.items.map((item, i) => (
-            <ItemCard key={item.name} item={item} accent={accentColors[i % accentColors.length]} />
+        <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2">
+          {subsection.items.map((item) => (
+            <ItemRow key={item.name} item={item} />
           ))}
         </div>
       )}
