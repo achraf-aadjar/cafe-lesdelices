@@ -87,7 +87,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-start px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:pt-28">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-start px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-32 lg:pt-36">
         <motion.p
           initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

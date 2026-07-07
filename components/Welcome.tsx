@@ -5,8 +5,8 @@ export function Welcome() {
     <section id="bienvenue" className="bg-cream px-5 py-20 sm:px-8 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <h2 className="font-display text-4xl font-bold uppercase tracking-wide text-terracotta sm:text-5xl">
-            Bienvenue à &laquo; Les Délices&nbsp;&raquo;
+          <h2 className="font-display text-3xl font-bold uppercase tracking-wide text-terracotta sm:text-5xl">
+            Bienvenue à &laquo;&nbsp;Les Délices&nbsp;&raquo;
           </h2>
           <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-saffron" />
         </Reveal>

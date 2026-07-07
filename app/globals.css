@@ -35,6 +35,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Décale l'ancrage pour que les titres ne passent pas sous la navbar fixe */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
