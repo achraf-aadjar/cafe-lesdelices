@@ -1,16 +1,16 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const galleryItems = [
-  { emoji: "🍕", label: "Pizza cuite au four", gradient: "from-terracotta to-chili" },
-  { emoji: "🐟", label: "Poisson grillé du jour", gradient: "from-olive to-olive-soft" },
-  { emoji: "🍝", label: "Pâtes aux fruits de mer", gradient: "from-saffron to-terracotta" },
-  { emoji: "🥐", label: "Viennoiseries maison", gradient: "from-saffron-soft to-saffron" },
-  { emoji: "🍢", label: "Brochettes grillées", gradient: "from-chili to-terracotta-dark" },
-  { emoji: "🥗", label: "Salade fraîcheur", gradient: "from-olive-soft to-olive" },
-  { emoji: "🍔", label: "Burger Délices", gradient: "from-terracotta-dark to-chili" },
-  { emoji: "🎂", label: "Pâtisseries généreuses", gradient: "from-saffron to-saffron-soft" },
+  { src: "/images/galerie/patisseries.webp", label: "Nos pâtisseries" },
+  { src: "/images/galerie/viennoiseries.webp", label: "Viennoiseries maison" },
+  { src: "/images/galerie/pains.webp", label: "Pains & baguettes du jour" },
+  { src: "/images/galerie/comptoir.webp", label: "Le comptoir gourmand" },
+  { src: "/images/galerie/salle-elegante.webp", label: "Une salle élégante" },
+  { src: "/images/galerie/salle.webp", label: "L'espace convivial" },
+  { src: "/images/galerie/decor.webp", label: "Un décor soigné" },
+  { src: "/images/galerie/gourmandises.webp", label: "Fraîchement préparé" },
 ];
-
 
 export function Gallery() {
   return (
@@ -29,23 +29,22 @@ export function Gallery() {
             Galerie
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-cream/70">
-            La diversité de nos plats et l&apos;ambiance conviviale de la maison.
+            Nos gourmandises et l&apos;ambiance chaleureuse de la maison.
           </p>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
           {galleryItems.map((item, i) => (
-            <Reveal key={item.label} delay={(i % 4) * 0.06}>
-              <div
-                className={`group relative aspect-square overflow-hidden rounded-2xl bg-linear-to-br ${item.gradient} shadow-lg shadow-black/30 transition-transform hover:scale-[1.03] hover:shadow-xl`}
-              >
-                <div
-                  className="flex h-full items-center justify-center text-5xl sm:text-6xl"
-                  aria-hidden="true"
-                >
-                  {item.emoji}
-                </div>
-                <div className="absolute inset-x-0 bottom-0 bg-coffee/60 px-3 py-2 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
+            <Reveal key={item.src} delay={(i % 4) * 0.06}>
+              <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg shadow-black/30 transition-transform hover:scale-[1.03] hover:shadow-xl">
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-coffee/85 to-transparent px-3 pb-3 pt-8">
                   <p className="text-xs font-semibold text-cream sm:text-sm">{item.label}</p>
                 </div>
               </div>
