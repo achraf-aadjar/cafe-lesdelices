@@ -22,12 +22,22 @@ export function Footer() {
               <br />
               Thiès, Sénégal
             </p>
-            <a
-              href="tel:+221339517516"
-              className="mt-2 inline-block text-sm font-semibold text-saffron-soft hover:text-saffron"
-            >
-              33 951 75 16
-            </a>
+            <div className="mt-2 flex flex-col gap-1 text-sm font-semibold">
+              <a
+                href="tel:+221339517516"
+                className="text-saffron-soft hover:text-saffron"
+              >
+                📞 33 951 75 16
+              </a>
+              <a
+                href="https://wa.me/221787500707"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-saffron-soft hover:text-saffron"
+              >
+                💬 78 750 07 07 (WhatsApp)
+              </a>
+            </div>
           </div>
 
           <div>
