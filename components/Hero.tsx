@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { RouteDivider } from "./RouteDivider";
-import heroImage from "@/public/images/hero-accueil.jpg";
 
 const iconProps = {
   width: 18,
@@ -73,14 +71,19 @@ export function Hero() {
       id="accueil"
       className="relative overflow-hidden text-cream"
     >
-      <Image
-        src={heroImage}
-        alt="La salle de Les Délices, ambiance chaleureuse et accueillante"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      <picture>
+        {/* Desktop : photo panoramique ; Mobile : cadrage vertical rapproché */}
+        <source media="(min-width: 640px)" srcSet="/images/hero-desktop.webp" />
+        <source media="(max-width: 639px)" srcSet="/images/hero-mobile.webp" />
+        {/* eslint-disable-next-line @next/next/no-img-element -- art-direction via <picture>, non supportée par next/image */}
+        <img
+          src="/images/hero-desktop.jpg"
+          alt="L'équipe de Les Délices vous accueille au comptoir"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       {/* Voile sombre léger pour la lisibilité, sans teinter la photo */}
       <div
         className="absolute inset-0 bg-linear-to-b from-black/55 via-black/35 to-black/55"
