@@ -44,17 +44,16 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <a
-          href="#accueil"
-          className="flex items-center rounded-xl"
-          aria-label="Les Délices — retour à l'accueil"
-        >
+        <a href="#accueil" className="flex items-center gap-3">
           <Image
             src={logo}
-            alt="Les Délices"
+            alt=""
             priority
-            className="h-12 w-12 rounded-xl object-cover shadow-md ring-1 ring-black/5 sm:h-14 sm:w-14"
+            className="h-11 w-11 rounded-xl object-cover shadow-md ring-1 ring-black/5 sm:h-14 sm:w-14"
           />
+          <span className="font-display text-xl font-semibold tracking-tight text-cream drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)] sm:text-2xl">
+            Les Délices
+          </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Navigation principale">
