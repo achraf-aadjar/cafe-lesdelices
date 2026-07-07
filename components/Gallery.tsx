@@ -5,11 +5,9 @@ const galleryItems = [
   { src: "/images/galerie/patisseries.webp", label: "Nos pâtisseries" },
   { src: "/images/galerie/viennoiseries.webp", label: "Viennoiseries maison" },
   { src: "/images/galerie/pains.webp", label: "Pains & baguettes du jour" },
-  { src: "/images/galerie/comptoir.webp", label: "Le comptoir gourmand" },
   { src: "/images/galerie/salle-elegante.webp", label: "Une salle élégante" },
   { src: "/images/galerie/salle.webp", label: "L'espace convivial" },
   { src: "/images/galerie/decor.webp", label: "Un décor soigné" },
-  { src: "/images/galerie/gourmandises.webp", label: "Fraîchement préparé" },
 ];
 
 export function Gallery() {
@@ -33,9 +31,9 @@ export function Gallery() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
           {galleryItems.map((item, i) => (
-            <Reveal key={item.src} delay={(i % 4) * 0.06}>
+            <Reveal key={item.src} delay={(i % 3) * 0.06}>
               <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg shadow-black/30 transition-transform hover:scale-[1.03] hover:shadow-xl">
                 <Image
                   src={item.src}
