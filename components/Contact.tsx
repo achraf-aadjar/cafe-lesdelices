@@ -2,6 +2,7 @@ import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { PhoneIcon } from "./PhoneIcon";
+import { TikTokIcon } from "./TikTokIcon";
 
 export function Contact() {
   return (
@@ -22,7 +23,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mx-auto mt-10 grid max-w-xl gap-4 sm:grid-cols-2">
+          <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
             <a
               href="tel:+221339517516"
               className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
@@ -40,6 +41,16 @@ export function Contact() {
               <WhatsAppIcon className="h-7 w-7 text-[#25D366]" />
               <span className="font-bold text-coffee">78 750 07 07</span>
               <span className="text-sm text-coffee-soft">WhatsApp</span>
+            </a>
+            <a
+              href="https://www.tiktok.com/@les.delices.thies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 rounded-2xl border border-coffee/10 bg-white px-5 py-6 text-center shadow-sm transition-shadow hover:shadow-md"
+            >
+              <TikTokIcon className="h-7 w-7 text-coffee" />
+              <span className="font-bold text-coffee">@les.delices.thies</span>
+              <span className="text-sm text-coffee-soft">TikTok</span>
             </a>
           </div>
         </Reveal>

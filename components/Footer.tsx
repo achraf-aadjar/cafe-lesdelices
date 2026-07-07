@@ -1,5 +1,6 @@
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { PhoneIcon } from "./PhoneIcon";
+import { TikTokIcon } from "./TikTokIcon";
 
 const quickLinks = [
   { href: "#menu", label: "Le Menu" },
@@ -41,6 +42,15 @@ export function Footer() {
               >
                 <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                 78 750 07 07 (WhatsApp)
+              </a>
+              <a
+                href="https://www.tiktok.com/@les.delices.thies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-saffron-soft hover:text-saffron"
+              >
+                <TikTokIcon className="h-4 w-4" />
+                @les.delices.thies (TikTok)
               </a>
             </div>
           </div>
