@@ -46,12 +46,12 @@ export const menuCategories: MenuCategory[] = [
       {
         title: "Pâtisseries",
         items: [
-          { name: "Croissant", price: 600 },
-          { name: "Pain au chocolat", price: 700 },
-          { name: "Pain aux raisins", price: 700 },
-          { name: "Palmier", price: 700 },
-          { name: "Chausson aux pommes", price: 700 },
-          { name: "Drops", price: 700 },
+          { name: "Croissant", price: 500 },
+          { name: "Pain au chocolat", price: 600 },
+          { name: "Pain aux raisins", price: 600 },
+          { name: "Palmier", price: 600 },
+          { name: "Chausson aux pommes", price: 600 },
+          { name: "Drops", price: 600 },
           { name: "Cake", price: 3000 },
           { name: "Petits fours (100 g)", price: 1500 },
           { name: "Gâteau au choix", price: 1400 },
