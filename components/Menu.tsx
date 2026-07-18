@@ -5,13 +5,16 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { menuCategories, menuNote, type MenuItem, type MenuSubsection } from "@/lib/menu-data";
 import { Reveal } from "./Reveal";
 
-// Note : La fonction formatPrice a été retirée car elle n'est plus utilisée.
-
 function ItemRow({ item }: { item: MenuItem }) {
   return (
     <div>
       <div className="flex items-baseline gap-2">
         <h4 className="font-display text-lg font-semibold text-coffee">{item.name}</h4>
+        {/* On remet la ligne pointillée décorative qui s'étire jusqu'au bout */}
+        <span
+          aria-hidden="true"
+          className="-translate-y-1 flex-1 border-b-2 border-dotted border-coffee/25"
+        />
       </div>
       {item.description && (
         <p className="mt-1 text-sm leading-relaxed text-coffee-soft">{item.description}</p>
@@ -20,22 +23,10 @@ function ItemRow({ item }: { item: MenuItem }) {
   );
 }
 
-function SharedPriceGroup({ subsection }: { subsection: MenuSubsection }) {
-  return (
-    <ul className="columns-2 gap-x-10 sm:columns-3">
-      {subsection.items.map((item) => (
-        <li
-          key={item.name}
-          className="mb-2.5 break-inside-avoid font-display text-base text-coffee"
-        >
-          {item.name}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 function Subsection({ subsection }: { subsection: MenuSubsection }) {
+  // Détecte si c'est la section Apéritifs ou Digestifs pour l'affichage compact en colonnes
+  const isLongList = subsection.title === "Apéritifs" || subsection.title === "Digestifs";
+
   return (
     <div>
       {subsection.title && (
@@ -49,9 +40,17 @@ function Subsection({ subsection }: { subsection: MenuSubsection }) {
         <p className="mb-4 -mt-2 text-sm italic text-coffee-soft">{subsection.note}</p>
       )}
       
-      {/* On conserve la structure d'affichage en colonnes pour les apéritifs / digestifs */}
-      {subsection.sharedPrice !== undefined ? (
-        <SharedPriceGroup subsection={subsection} />
+      {isLongList ? (
+        <ul className="columns-2 gap-x-10 sm:columns-3">
+          {subsection.items.map((item) => (
+            <li
+              key={item.name}
+              className="mb-2.5 break-inside-avoid font-display text-base text-coffee"
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
       ) : (
         <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2">
           {subsection.items.map((item) => (
