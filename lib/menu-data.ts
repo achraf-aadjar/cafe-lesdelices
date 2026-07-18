@@ -500,7 +500,7 @@ export const menuCategories: MenuCategory[] = [
         items: [
           { name: "Bouché", price:  },
           { name: "Grand Cru", price:  },
-          { name: "Champagne", price:  },
+          { name: "Champagne", price: },
         ],
       },
     ],
