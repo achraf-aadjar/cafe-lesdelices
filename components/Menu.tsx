@@ -5,26 +5,13 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { menuCategories, menuNote, type MenuItem, type MenuSubsection } from "@/lib/menu-data";
 import { Reveal } from "./Reveal";
 
-function formatPrice(price: number) {
-  return `${price.toLocaleString("fr-FR")} F`;
-}
+// Note : La fonction formatPrice a été retirée car elle n'est plus utilisée.
 
 function ItemRow({ item }: { item: MenuItem }) {
   return (
     <div>
       <div className="flex items-baseline gap-2">
         <h4 className="font-display text-lg font-semibold text-coffee">{item.name}</h4>
-        {item.price !== undefined && (
-          <>
-            <span
-              aria-hidden="true"
-              className="-translate-y-1 flex-1 border-b-2 border-dotted border-coffee/25"
-            />
-            <span className="shrink-0 whitespace-nowrap font-display text-lg font-bold text-terracotta">
-              {formatPrice(item.price)}
-            </span>
-          </>
-        )}
       </div>
       {item.description && (
         <p className="mt-1 text-sm leading-relaxed text-coffee-soft">{item.description}</p>
@@ -56,17 +43,13 @@ function Subsection({ subsection }: { subsection: MenuSubsection }) {
           <h3 className="font-display text-xl font-bold text-terracotta-dark">
             {subsection.title}
           </h3>
-          {subsection.sharedPrice !== undefined && (
-            <span className="font-display text-base font-bold text-terracotta">
-              {formatPrice(subsection.sharedPrice)}
-              <span className="ml-1 text-xs font-semibold text-coffee-soft">le verre</span>
-            </span>
-          )}
         </div>
       )}
       {subsection.note && (
         <p className="mb-4 -mt-2 text-sm italic text-coffee-soft">{subsection.note}</p>
       )}
+      
+      {/* On conserve la structure d'affichage en colonnes pour les apéritifs / digestifs */}
       {subsection.sharedPrice !== undefined ? (
         <SharedPriceGroup subsection={subsection} />
       ) : (
