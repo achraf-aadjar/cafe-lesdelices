@@ -7,7 +7,6 @@ import logo from "@/public/images/logo.webp";
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
   { href: "#bienvenue", label: "Bienvenue" },
-  { href: "#menu", label: "Le Menu" },
   { href: "#galerie", label: "Galerie" },
   { href: "#localisation", label: "Comment venir" },
   { href: "#contact", label: "Contact" },
